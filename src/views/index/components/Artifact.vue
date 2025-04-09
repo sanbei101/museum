@@ -66,7 +66,7 @@ const featuredItems = ref([
     category: "陶瓷器",
     description: "明代宣德时期的青花瓷器，以其独特的釉色和精美的纹饰著称于世。",
     image:
-      "https://images.unsplash.com/photo-1549175511-0efad17dad72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "https://plus.unsplash.com/premium_photo-1724094573983-39b59fb01772?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     likes: 212,
     favorite: false,
   },
@@ -77,7 +77,7 @@ const featuredItems = ref([
     description:
       "汉代玉器精品，以猪和龙的形象结合，体现了古代人们的宗教信仰和审美观念。",
     image:
-      "https://images.unsplash.com/photo-1578327258672-7e9e3f19c3e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+      "https://images.unsplash.com/photo-1734107640189-4974176150f9?q=80&w=3279&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     likes: 178,
     favorite: false,
   },

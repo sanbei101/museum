@@ -40,14 +40,14 @@ const carouselItems = ref([
     title: "汉唐丝绸之路文物展",
     description: "探索丝绸之路的文化交流与商贸往来，见证东西方文明的碰撞与融合",
     image:
-      "https://images.unsplash.com/photo-1464185748716-8e6de44c63bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1700547949736-024ad8cb56cd?q=80&w=2604&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "明清瓷器珍品展",
     description:
       '欣赏中国瓷器艺术的巅峰之作，领略"白若玉，明若镜，薄如纸，声如磬"的独特魅力',
     image:
-      "https://images.unsplash.com/photo-1626083712632-36dc45c1a9fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1571&q=80",
+      "https://images.unsplash.com/photo-1683881453953-93c2e8f13c95?q=80&w=3468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ]);
 </script>

@@ -2,7 +2,6 @@
   <n-layout-header bordered class="header">
     <div class="header-content">
       <div class="logo">
-        <Museum class="logo-icon" />
         <h1>博物馆藏品管理</h1>
       </div>
       <div class="nav-links">
@@ -31,6 +30,7 @@
 
 <script setup lang="ts">
 import { NLayoutHeader, NMenu, NButton, NAvatar } from "naive-ui";
+import { Search, Bell } from "lucide-vue-next";
 
 const menuOptions = [
   {
@@ -79,16 +79,6 @@ const menuOptions = [
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-icon {
-  color: #18a058;
 }
 
 .logo h1 {
