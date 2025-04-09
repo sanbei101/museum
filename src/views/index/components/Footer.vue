@@ -21,9 +21,9 @@
       <div class="footer-section">
         <h3>联系我们</h3>
         <ul>
-          <li><Mail /> info@museum.com</li>
-          <li><Phone /> +86 123 4567 8901</li>
-          <li><MapPin /> 北京市海淀区博物馆路100号</li>
+          <li><Mail /> sanbei101@outlook.com</li>
+          <li><Phone /> +86 13672246940</li>
+          <li><MapPin />中国农业大学计算机231数据库作业小组</li>
         </ul>
       </div>
     </div>
