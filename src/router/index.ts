@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 const Home = () => import("@/views/index/Home.vue");
 const ArtifactDisplay = () => import("@/views/index/ArtifactDisplay.vue");
+import ArtifactDetail from "@/views/index/ArtifactDetail.vue";
 
 export const RouteName = {
   Home: "home",
   ArtifactDisplay: "artifactDisplay",
+  ArtifactDetail: "artifactDetail",
 };
 
 const routes = [
@@ -17,6 +19,11 @@ const routes = [
     name: RouteName.ArtifactDisplay,
     path: "/artifact-display",
     component: ArtifactDisplay,
+  },
+  {
+    name: RouteName.ArtifactDetail,
+    path: "/artifact-detail/:id",
+    component: ArtifactDetail,
   },
 ];
 

@@ -48,7 +48,11 @@
     <div class="artifacts-section">
       <n-grid cols="1 s:2 m:3 l:4" responsive="screen" :x-gap="16" :y-gap="16">
         <n-grid-item v-for="item in displayedArtifacts" :key="item.id">
-          <n-card hoverable class="artifact-card">
+          <n-card
+            hoverable
+            class="artifact-card"
+            @click="navigateToDetail(item)"
+          >
             <template #cover>
               <img :src="item.image" class="artifact-image" />
             </template>
@@ -109,6 +113,8 @@ import {
 import { Heart, Search } from "lucide-vue-next";
 import type { Artifact } from "@/api/type";
 import { FetchArtifact } from "@/api/artifact";
+import { useRouter } from "vue-router";
+import { RouteName } from "@/router";
 
 // 藏品类型定义
 type ArtifactItem = Artifact & {
@@ -226,6 +232,17 @@ const toggleFavorite = (item: ArtifactItem) => {
     item.likes--;
   }
 };
+const router = useRouter();
+// 导航到详情页
+const navigateToDetail = (item: ArtifactItem) => {
+  router.push({
+    name: RouteName.ArtifactDetail,
+    params: { id: item.id },
+    query: {
+      item: JSON.stringify(item),
+    },
+  });
+};
 
 // 处理搜索
 const handleSearch = () => {
@@ -332,6 +349,10 @@ onMounted(() => {
 .artifact-card:hover {
   transform: translateY(-5px);
   transition: transform 0.3s ease;
+}
+
+.artifact-card {
+  cursor: pointer;
 }
 
 .artifact-image {
