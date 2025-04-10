@@ -44,7 +44,7 @@ const router = useRouter();
 onMounted(async () => {
   try {
     const res = await FetchArtifact(1, 5);
-    res.forEach((item) => {
+    res.items.forEach((item) => {
       const artifact = {
         id: item.id,
         name: item.name,

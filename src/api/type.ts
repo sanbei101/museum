@@ -7,3 +7,11 @@ export type Artifact = {
   description: string;
   likes: number;
 };
+
+export type Page<T> = {
+  items: T[];
+  page: number;
+  perPage: number;
+  totalItems: number;
+  totalPages: number;
+};

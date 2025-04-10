@@ -205,7 +205,7 @@ const fetchArtifacts = async () => {
     artifacts.value = [];
 
     // 处理返回的数据
-    res.forEach((item) => {
+    res.items.forEach((item) => {
       artifacts.value.push({
         ...item,
         likes: Math.floor(Math.random() * 1000), // 随机生成点赞数
@@ -213,8 +213,7 @@ const fetchArtifacts = async () => {
       });
     });
 
-    // 假设总数为50，实际应该从API获取
-    totalArtifacts.value = 50;
+    totalArtifacts.value = res.totalItems;
   } catch (error) {
     console.error("获取藏品失败:", error);
   } finally {
