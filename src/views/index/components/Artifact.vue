@@ -43,7 +43,7 @@ import { RouteName } from "@/router";
 const router = useRouter();
 onMounted(async () => {
   try {
-    const res = await FetchArtifact(1, 50);
+    const res = await FetchArtifact(1, 5);
     res.forEach((item) => {
       const artifact = {
         id: item.id,
@@ -52,7 +52,7 @@ onMounted(async () => {
         category: item.category,
         description: item.description,
         image: item.image,
-        likes: Math.floor(Math.random() * 1000), // 随机生成点赞数
+        likes: item.likes,
         favorite: false,
       };
       featuredItems.value.push(artifact);
@@ -69,7 +69,6 @@ const handleClick = () => {
 };
 type FeaturedItem = Artifact & {
   favorite: boolean;
-  likes: number;
 };
 // 精选藏品数据
 const featuredItems = ref<FeaturedItem[]>([

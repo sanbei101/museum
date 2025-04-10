@@ -1,3 +1,4 @@
 import PocketBase from "pocketbase";
 
-export const pb = new PocketBase("http://125.91.126.101:8090");
+const POCKETBASE_URL = import.meta.env.VITE_POCKETBASE_URL as string;
+export const pb = new PocketBase(POCKETBASE_URL);

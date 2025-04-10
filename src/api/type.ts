@@ -5,4 +5,5 @@ export type Artifact = {
   image: string;
   category: string;
   description: string;
+  likes: number;
 };

@@ -237,7 +237,6 @@ const router = useRouter();
 // 定义带有favorite和likes属性的ArtifactItem类型
 type ArtifactItem = Artifact & {
   favorite: boolean;
-  likes: number;
 };
 
 // 获取传递过来的藏品数据

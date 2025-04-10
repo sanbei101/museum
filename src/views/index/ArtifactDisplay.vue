@@ -119,7 +119,6 @@ import { RouteName } from "@/router";
 // 藏品类型定义
 type ArtifactItem = Artifact & {
   favorite: boolean;
-  likes: number;
 };
 
 // 响应式状态
