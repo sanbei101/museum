@@ -4,7 +4,6 @@
     <div class="footer-content">
       <div class="footer-section">
         <div class="footer-logo">
-          <Museum />
           <h2>博物馆藏品管理</h2>
         </div>
         <p>探索历史，保护文化，传承文明</p>
@@ -12,10 +11,10 @@
       <div class="footer-section">
         <h3>快速链接</h3>
         <ul>
-          <li><n-button text>首页</n-button></li>
-          <li><n-button text>藏品展示</n-button></li>
-          <li><n-button text>参观指南</n-button></li>
-          <li><n-button text>关于我们</n-button></li>
+          <li><n-button text color="white">首页</n-button></li>
+          <li><n-button text color="white">藏品展示</n-button></li>
+          <li><n-button text color="white">参观指南</n-button></li>
+          <li><n-button text color="white">关于我们</n-button></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -34,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { NLayoutFooter } from "naive-ui";
+import { NLayoutFooter, NButton } from "naive-ui";
 import { Mail, Phone, MapPin } from "lucide-vue-next";
 </script>
 

@@ -6,7 +6,7 @@
       <n-button text>查看全部 <ChevronRight /></n-button>
     </div>
     <n-grid cols="1 s:2 m:3 l:4" responsive="screen" :x-gap="16" :y-gap="16">
-      <n-grid-item v-for="(item, index) in featuredItems" :key="index">
+      <n-grid-item v-for="item in featuredItems" :key="item.id">
         <n-card hoverable class="artifact-card">
           <template #cover>
             <img :src="item.image" class="artifact-image" />
@@ -33,13 +33,39 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { NCard, NGrid, NGridItem, NButton, NTag } from "naive-ui";
-import { Heart } from "lucide-vue-next";
-
+import { Heart, ChevronRight } from "lucide-vue-next";
+import type { Artifact } from "@/api/type";
+import { FetchArtifact } from "@/api/artifact";
+onMounted(async () => {
+  try {
+    const res = await FetchArtifact(1, 50);
+    res.forEach((item) => {
+      const artifact = {
+        id: item.id,
+        name: item.name,
+        era: item.era,
+        category: item.category,
+        description: item.description,
+        image: item.image,
+        likes: Math.floor(Math.random() * 1000), // 随机生成点赞数
+        favorite: false,
+      };
+      featuredItems.value.push(artifact);
+    });
+  } catch (error) {
+    console.error("Error fetching artifacts:", error);
+  }
+});
+type FeaturedItem = Artifact & {
+  favorite: boolean;
+  likes: number;
+};
 // 精选藏品数据
-const featuredItems = ref([
+const featuredItems = ref<FeaturedItem[]>([
   {
+    id: "1",
     name: "商代四羊方尊",
     era: "商代晚期",
     category: "青铜器",
@@ -50,6 +76,7 @@ const featuredItems = ref([
     favorite: false,
   },
   {
+    id: "2",
     name: "唐三彩骆驼载乐俑",
     era: "唐代",
     category: "陶瓷器",
@@ -59,27 +86,6 @@ const featuredItems = ref([
       "https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
     likes: 189,
     favorite: true,
-  },
-  {
-    name: "明宣德青花瓷器",
-    era: "明代",
-    category: "陶瓷器",
-    description: "明代宣德时期的青花瓷器，以其独特的釉色和精美的纹饰著称于世。",
-    image:
-      "https://plus.unsplash.com/premium_photo-1724094573983-39b59fb01772?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    likes: 212,
-    favorite: false,
-  },
-  {
-    name: "汉代玉猪龙",
-    era: "汉代",
-    category: "玉器",
-    description:
-      "汉代玉器精品，以猪和龙的形象结合，体现了古代人们的宗教信仰和审美观念。",
-    image:
-      "https://images.unsplash.com/photo-1734107640189-4974176150f9?q=80&w=3279&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    likes: 178,
-    favorite: false,
   },
 ]);
 </script>
