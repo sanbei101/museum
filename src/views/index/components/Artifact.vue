@@ -3,7 +3,7 @@
   <div class="featured-section">
     <div class="section-header">
       <h2>精选藏品</h2>
-      <n-button text>查看全部 <ChevronRight /></n-button>
+      <n-button text @click="handleClick">查看全部 <ChevronRight /></n-button>
     </div>
     <n-grid cols="1 s:2 m:3 l:4" responsive="screen" :x-gap="16" :y-gap="16">
       <n-grid-item v-for="item in featuredItems" :key="item.id">
@@ -38,6 +38,9 @@ import { NCard, NGrid, NGridItem, NButton, NTag } from "naive-ui";
 import { Heart, ChevronRight } from "lucide-vue-next";
 import type { Artifact } from "@/api/type";
 import { FetchArtifact } from "@/api/artifact";
+import { useRouter } from "vue-router";
+import { RouteName } from "@/router";
+const router = useRouter();
 onMounted(async () => {
   try {
     const res = await FetchArtifact(1, 50);
@@ -58,6 +61,12 @@ onMounted(async () => {
     console.error("Error fetching artifacts:", error);
   }
 });
+const handleClick = () => {
+  console.log(RouteName.ArtifactDisplay);
+  router.push({
+    name: RouteName.ArtifactDisplay,
+  });
+};
 type FeaturedItem = Artifact & {
   favorite: boolean;
   likes: number;
