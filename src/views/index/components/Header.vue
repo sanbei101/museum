@@ -85,6 +85,7 @@ const menuOptions = [
   font-size: 18px;
   margin: 0;
   color: #18a058;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -96,5 +97,11 @@ const menuOptions = [
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
 }
 </style>
