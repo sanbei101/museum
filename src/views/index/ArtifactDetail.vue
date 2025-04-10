@@ -363,6 +363,7 @@ onMounted(() => {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 .back-button {
@@ -402,6 +403,7 @@ onMounted(() => {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 .main-image {
@@ -508,13 +510,17 @@ onMounted(() => {
 
 .artifact-description {
   line-height: 1.6;
+  max-width: 95%;
 }
 
 .artifact-description h3 {
   font-size: 18px;
   margin: 0 0 12px 0;
 }
-
+.artifact-description p {
+  word-break: break-word;
+  margin-right: 5%;
+}
 .artifact-section {
   margin: 40px 0;
 }
