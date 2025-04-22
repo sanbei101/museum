@@ -21,38 +21,42 @@
         <n-avatar
           round
           size="medium"
-          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-        />
+          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
       </div>
     </div>
   </n-layout-header>
 </template>
 
 <script setup lang="ts">
-import { NLayoutHeader, NMenu, NButton, NAvatar } from "naive-ui";
-import { Search, Bell } from "lucide-vue-next";
+import { NLayoutHeader, NMenu, NButton, NAvatar, type MenuOption } from 'naive-ui';
+import { Search, Bell } from 'lucide-vue-next';
+import { h } from 'vue';
+import { RouterLink } from 'vue-router';
+import { RouteName } from '@/router';
 
-const menuOptions = [
+const menuOptions: MenuOption[] = [
   {
-    label: "首页",
-    key: "home",
+    label: () => {
+      return h(RouterLink, { to: { name: RouteName.ArtifactDisplay } }, () => '藏品展示');
+    },
+    key: 'artifacts'
   },
   {
-    label: "藏品展示",
-    key: "artifacts",
+    label: () => {
+      return h(RouterLink, { to: { name: RouteName.VirtualMuseum } }, () => '虚拟展厅');
+    },
+    key: 'virtual-tour'
   },
   {
-    label: "虚拟展厅",
-    key: "virtual-tour",
+    label: '活动预约',
+    key: 'events'
   },
   {
-    label: "活动预约",
-    key: "events",
-  },
-  {
-    label: "参观指南",
-    key: "guide",
-  },
+    label: () => {
+      return h(RouterLink, { to: { name: RouteName.VisitGuide } }, () => '导览服务');
+    },
+    key: 'guide'
+  }
 ];
 </script>
 

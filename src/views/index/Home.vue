@@ -17,13 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import Header from "./components/Header.vue";
-import { NLayoutContent } from "naive-ui";
-import Carousel from "./components/Carousel.vue";
-import Artifact from "./components/Artifact.vue";
-import Statistic from "./components/Statistic.vue";
-import Footer from "./components/Footer.vue";
-import Search from "./components/Search.vue";
+import Header from './components/Header.vue';
+import { NLayoutContent } from 'naive-ui';
+import Carousel from './components/Carousel.vue';
+import Artifact from './components/Artifact.vue';
+import Statistic from './components/Statistic.vue';
+import Footer from './components/Footer.vue';
+import Search from './components/Search.vue';
 </script>
 
 <style>

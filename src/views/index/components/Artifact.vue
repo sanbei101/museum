@@ -33,13 +33,13 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { NCard, NGrid, NGridItem, NButton, NTag } from "naive-ui";
-import { Heart, ChevronRight } from "lucide-vue-next";
-import type { Artifact } from "@/api/type";
-import { FetchArtifact } from "@/api/artifact";
-import { useRouter } from "vue-router";
-import { RouteName } from "@/router";
+import { onMounted, ref } from 'vue';
+import { NCard, NGrid, NGridItem, NButton, NTag } from 'naive-ui';
+import { Heart, ChevronRight } from 'lucide-vue-next';
+import type { Artifact } from '@/api/type';
+import { FetchArtifact } from '@/api/artifact';
+import { useRouter } from 'vue-router';
+import { RouteName } from '@/router';
 const router = useRouter();
 onMounted(async () => {
   try {
@@ -53,18 +53,18 @@ onMounted(async () => {
         description: item.description,
         image: item.image,
         likes: item.likes,
-        favorite: false,
+        favorite: false
       };
       featuredItems.value.push(artifact);
     });
   } catch (error) {
-    console.error("Error fetching artifacts:", error);
+    console.error('Error fetching artifacts:', error);
   }
 });
 const handleClick = () => {
   console.log(RouteName.ArtifactDisplay);
   router.push({
-    name: RouteName.ArtifactDisplay,
+    name: RouteName.ArtifactDisplay
   });
 };
 type FeaturedItem = Artifact & {
@@ -73,28 +73,27 @@ type FeaturedItem = Artifact & {
 // 精选藏品数据
 const featuredItems = ref<FeaturedItem[]>([
   {
-    id: "1",
-    name: "商代四羊方尊",
-    era: "商代晚期",
-    category: "青铜器",
-    description: "四羊方尊是中国出土的商代青铜礼器，器身四角有羊首装饰",
+    id: '1',
+    name: '商代四羊方尊',
+    era: '商代晚期',
+    category: '青铜器',
+    description: '四羊方尊是中国出土的商代青铜礼器，器身四角有羊首装饰',
     image:
-      "https://images.unsplash.com/photo-1609607847926-da4702f01fef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80",
+      'https://images.unsplash.com/photo-1609607847926-da4702f01fef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80',
     likes: 256,
-    favorite: false,
+    favorite: false
   },
   {
-    id: "2",
-    name: "唐三彩骆驼载乐俑",
-    era: "唐代",
-    category: "陶瓷器",
-    description:
-      "唐三彩是唐代陶瓷艺术的代表，此俑展现了唐代丝绸之路的商贸景象。",
+    id: '2',
+    name: '唐三彩骆驼载乐俑',
+    era: '唐代',
+    category: '陶瓷器',
+    description: '唐三彩是唐代陶瓷艺术的代表，此俑展现了唐代丝绸之路的商贸景象。',
     image:
-      "https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      'https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
     likes: 189,
-    favorite: true,
-  },
+    favorite: true
+  }
 ]);
 </script>
 

@@ -25,21 +25,18 @@
             placeholder="时代"
             :options="eraOptions"
             clearable
-            @update:value="handleFilter"
-          />
+            @update:value="handleFilter" />
           <n-select
             v-model:value="filterCategory"
             placeholder="类别"
             :options="categoryOptions"
             clearable
-            @update:value="handleFilter"
-          />
+            @update:value="handleFilter" />
           <n-select
             v-model:value="sortBy"
             placeholder="排序方式"
             :options="sortOptions"
-            @update:value="handleSort"
-          />
+            @update:value="handleSort" />
         </div>
       </div>
     </div>
@@ -48,11 +45,7 @@
     <div class="artifacts-section">
       <n-grid cols="1 s:2 m:3 l:4" responsive="screen" :x-gap="16" :y-gap="16">
         <n-grid-item v-for="item in displayedArtifacts" :key="item.id">
-          <n-card
-            hoverable
-            class="artifact-card"
-            @click="navigateToDetail(item)"
-          >
+          <n-card hoverable class="artifact-card" @click="navigateToDetail(item)">
             <template #cover>
               <img :src="item.image" class="artifact-image" />
             </template>
@@ -90,14 +83,13 @@
         :page-sizes="[8, 16, 32, 64]"
         @update:page="handlePageChange"
         @update:page-size="handlePageSizeChange"
-        show-size-picker
-      />
+        show-size-picker />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch } from 'vue';
 import {
   NCard,
   NGrid,
@@ -108,13 +100,13 @@ import {
   NInputGroup,
   NSelect,
   NPagination,
-  NEmpty,
-} from "naive-ui";
-import { Heart, Search } from "lucide-vue-next";
-import type { Artifact } from "@/api/type";
-import { FetchArtifact } from "@/api/artifact";
-import { useRouter } from "vue-router";
-import { RouteName } from "@/router";
+  NEmpty
+} from 'naive-ui';
+import { Heart, Search } from 'lucide-vue-next';
+import type { Artifact } from '@/api/type';
+import { FetchArtifact } from '@/api/artifact';
+import { useRouter } from 'vue-router';
+import { RouteName } from '@/router';
 
 // 藏品类型定义
 type ArtifactItem = Artifact & {
@@ -124,37 +116,37 @@ type ArtifactItem = Artifact & {
 // 响应式状态
 const artifacts = ref<ArtifactItem[]>([]);
 const loading = ref(false);
-const searchQuery = ref("");
-const filterEra = ref("");
+const searchQuery = ref('');
+const filterEra = ref('');
 const filterCategory = ref(null);
 const currentPage = ref(1);
 const pageSize = ref(16);
 const totalArtifacts = ref(0);
-const sortBy = ref("default");
+const sortBy = ref('default');
 
 // 筛选选项
 const eraOptions = ref([
-  { label: "商代", value: "商代" },
-  { label: "唐代", value: "唐代" },
-  { label: "宋代", value: "宋代" },
-  { label: "元代", value: "元代" },
-  { label: "明代", value: "明代" },
-  { label: "清代", value: "清代" },
+  { label: '商代', value: '商代' },
+  { label: '唐代', value: '唐代' },
+  { label: '宋代', value: '宋代' },
+  { label: '元代', value: '元代' },
+  { label: '明代', value: '明代' },
+  { label: '清代', value: '清代' }
 ]);
 
 const categoryOptions = ref([
-  { label: "青铜器", value: "青铜器" },
-  { label: "陶瓷器", value: "陶瓷器" },
-  { label: "书画", value: "书画" },
-  { label: "玉石器", value: "玉石器" },
-  { label: "漆器", value: "漆器" },
+  { label: '青铜器', value: '青铜器' },
+  { label: '陶瓷器', value: '陶瓷器' },
+  { label: '书画', value: '书画' },
+  { label: '玉石器', value: '玉石器' },
+  { label: '漆器', value: '漆器' }
 ]);
 
 const sortOptions = ref([
-  { label: "默认排序", value: "default" },
-  { label: "名称 A-Z", value: "name-asc" },
-  { label: "名称 Z-A", value: "name-desc" },
-  { label: "热门程度", value: "popularity" },
+  { label: '默认排序', value: 'default' },
+  { label: '名称 A-Z', value: 'name-asc' },
+  { label: '名称 Z-A', value: 'name-desc' },
+  { label: '热门程度', value: 'popularity' }
 ]);
 
 // 计算总页数
@@ -184,11 +176,11 @@ const displayedArtifacts = computed(() => {
   }
 
   // 排序
-  if (sortBy.value === "name-asc") {
+  if (sortBy.value === 'name-asc') {
     result.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortBy.value === "name-desc") {
+  } else if (sortBy.value === 'name-desc') {
     result.sort((a, b) => b.name.localeCompare(a.name));
-  } else if (sortBy.value === "popularity") {
+  } else if (sortBy.value === 'popularity') {
     result.sort((a, b) => b.likes - a.likes);
   }
 
@@ -209,13 +201,13 @@ const fetchArtifacts = async () => {
       artifacts.value.push({
         ...item,
         likes: Math.floor(Math.random() * 1000), // 随机生成点赞数
-        favorite: false,
+        favorite: false
       });
     });
 
     totalArtifacts.value = res.totalItems;
   } catch (error) {
-    console.error("获取藏品失败:", error);
+    console.error('获取藏品失败:', error);
   } finally {
     loading.value = false;
   }
@@ -237,8 +229,8 @@ const navigateToDetail = (item: ArtifactItem) => {
     name: RouteName.ArtifactDetail,
     params: { id: item.id },
     query: {
-      item: JSON.stringify(item),
-    },
+      item: JSON.stringify(item)
+    }
   });
 };
 

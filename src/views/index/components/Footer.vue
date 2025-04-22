@@ -33,8 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import { NLayoutFooter, NButton } from "naive-ui";
-import { Mail, Phone, MapPin } from "lucide-vue-next";
+import { NLayoutFooter, NButton } from 'naive-ui';
+import { Mail, Phone, MapPin } from 'lucide-vue-next';
 </script>
 
 <style scoped>

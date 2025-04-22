@@ -18,31 +18,31 @@
 </template>
 
 <script setup lang="ts">
-import { Database, Users, Calendar, Medal } from "lucide-vue-next";
-import { NGrid, NGridItem, NCard } from "naive-ui";
-import { ref } from "vue";
+import { Database, Users, Calendar, Medal } from 'lucide-vue-next';
+import { NGrid, NGridItem, NCard } from 'naive-ui';
+import { ref } from 'vue';
 // 数据统计
 const statsData = ref([
   {
     icon: Database,
-    value: "12,000+",
-    label: "馆藏文物",
+    value: '12,000+',
+    label: '馆藏文物'
   },
   {
     icon: Users,
-    value: "150万+",
-    label: "年访问量",
+    value: '150万+',
+    label: '年访问量'
   },
   {
     icon: Calendar,
-    value: "120+",
-    label: "年度展览",
+    value: '120+',
+    label: '年度展览'
   },
   {
     icon: Medal,
-    value: "36+",
-    label: "国家级珍品",
-  },
+    value: '36+',
+    label: '国家级珍品'
+  }
 ]);
 </script>
 

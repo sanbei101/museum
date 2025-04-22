@@ -1,18 +1,8 @@
 <template>
   <div class="banner-section">
-    <n-carousel
-      autoplay
-      dot-type="line"
-      show-arrow
-      :interval="5000"
-      effect="fade"
-      class="carousel"
-    >
+    <n-carousel autoplay dot-type="line" show-arrow :interval="5000" effect="fade" class="carousel">
       <n-carousel-item v-for="(item, index) in carouselItems" :key="index">
-        <div
-          class="carousel-item"
-          :style="`background-image: url(${item.image})`"
-        >
+        <div class="carousel-item" :style="`background-image: url(${item.image})`">
           <div class="carousel-content">
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
@@ -25,30 +15,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { NCarousel, NCarouselItem, NButton } from "naive-ui";
+import { ref } from 'vue';
+import { NCarousel, NCarouselItem, NButton } from 'naive-ui';
 
 // 轮播图数据
 const carouselItems = ref([
   {
-    title: "东周青铜器专题展",
-    description: "展示东周时期精美的青铜器文化，感受中国古代工艺的卓越成就",
+    title: '东周青铜器专题展',
+    description: '展示东周时期精美的青铜器文化，感受中国古代工艺的卓越成就',
     image:
-      "https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1574&q=80",
+      'https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1574&q=80'
   },
   {
-    title: "汉唐丝绸之路文物展",
-    description: "探索丝绸之路的文化交流与商贸往来，见证东西方文明的碰撞与融合",
+    title: '汉唐丝绸之路文物展',
+    description: '探索丝绸之路的文化交流与商贸往来，见证东西方文明的碰撞与融合',
     image:
-      "https://images.unsplash.com/photo-1700547949736-024ad8cb56cd?q=80&w=2604&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      'https://images.unsplash.com/photo-1700547949736-024ad8cb56cd?q=80&w=2604&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
-    title: "明清瓷器珍品展",
-    description:
-      '欣赏中国瓷器艺术的巅峰之作，领略"白若玉，明若镜，薄如纸，声如磬"的独特魅力',
+    title: '明清瓷器珍品展',
+    description: '欣赏中国瓷器艺术的巅峰之作，领略"白若玉，明若镜，薄如纸，声如磬"的独特魅力',
     image:
-      "https://images.unsplash.com/photo-1683881453953-93c2e8f13c95?q=80&w=3468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
+      'https://images.unsplash.com/photo-1683881453953-93c2e8f13c95?q=80&w=3468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+  }
 ]);
 </script>
 
@@ -69,7 +58,7 @@ const carouselItems = ref([
 }
 
 .carousel-item::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;

@@ -18,12 +18,7 @@
               <n-button circle quaternary class="img-action-btn">
                 <template #icon><Maximize2 /></template>
               </n-button>
-              <n-button
-                circle
-                quaternary
-                class="img-action-btn"
-                @click="toggleFavorite"
-              >
+              <n-button circle quaternary class="img-action-btn" @click="toggleFavorite">
                 <template #icon>
                   <Heart v-if="!isFavorite" />
                   <Heart v-else style="color: red; fill: red" />
@@ -38,12 +33,7 @@
             <n-scrollbar x-scrollable>
               <div class="thumbnails">
                 <img :src="artifact.image" class="thumbnail active" />
-                <img
-                  v-for="i in 4"
-                  :key="i"
-                  :src="artifact.image"
-                  class="thumbnail"
-                />
+                <img v-for="i in 4" :key="i" :src="artifact.image" class="thumbnail" />
               </div>
             </n-scrollbar>
           </div>
@@ -59,8 +49,8 @@
             </n-space>
             <div class="artifact-popularity">
               <n-space align="center">
-                <n-icon><Eye /></n-icon> {{ randomViews }}
-                <n-icon><Heart /></n-icon> {{ artifact.likes }}
+                <n-icon><Eye /></n-icon> {{ randomViews }} <n-icon><Heart /></n-icon>
+                {{ artifact.likes }}
               </n-space>
             </div>
           </div>
@@ -162,25 +152,17 @@
             placeholder="分享您对这件藏品的看法..."
             :autosize="{
               minRows: 3,
-              maxRows: 5,
-            }"
-          />
+              maxRows: 5
+            }" />
           <div class="comment-actions">
             <n-button type="primary" @click="submitComment">发表评论</n-button>
           </div>
         </div>
 
         <div class="comments-list">
-          <div
-            v-for="(comment, index) in comments"
-            :key="index"
-            class="comment-item"
-          >
+          <div v-for="(comment, index) in comments" :key="index" class="comment-item">
             <div class="comment-avatar">
-              <n-avatar
-                :src="`https://i.pravatar.cc/150?u=${comment.author}`"
-                round
-              />
+              <n-avatar :src="`https://i.pravatar.cc/150?u=${comment.author}`" round />
             </div>
             <div class="comment-content">
               <div class="comment-header">
@@ -209,27 +191,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import {
-  NButton,
-  NSpin,
-  NTag,
-  NSpace,
-  NIcon,
-  NAvatar,
-  NInput,
-  NScrollbar,
-} from "naive-ui";
-import {
-  ArrowLeft,
-  Heart,
-  Share,
-  Eye,
-  Maximize2,
-  ThumbsUp,
-} from "lucide-vue-next";
-import type { Artifact } from "@/api/type";
+import { ref, computed, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { NButton, NSpin, NTag, NSpace, NIcon, NAvatar, NInput, NScrollbar } from 'naive-ui';
+import { ArrowLeft, Heart, Share, Eye, Maximize2, ThumbsUp } from 'lucide-vue-next';
+import type { Artifact } from '@/api/type';
 
 const route = useRoute();
 const router = useRouter();
@@ -241,41 +207,35 @@ type ArtifactItem = Artifact & {
 
 // 获取传递过来的藏品数据
 const artifact = ref<ArtifactItem | null>(null);
-const commentText = ref("");
+const commentText = ref('');
 const isFavorite = ref(false);
 
 // 评论数据
 const comments = ref([
   {
-    author: "文物爱好者",
-    date: "2023-05-15",
-    text: "这件藏品的工艺非常精湛,是我见过的同时期作品中保存最完好的一件。",
-    likes: 24,
+    author: '文物爱好者',
+    date: '2023-05-15',
+    text: '这件藏品的工艺非常精湛,是我见过的同时期作品中保存最完好的一件。',
+    likes: 24
   },
   {
-    author: "历史研究者",
-    date: "2023-05-10",
-    text: "通过这件文物可以了解到当时的社会生活和审美取向,非常有研究价值。",
-    likes: 18,
+    author: '历史研究者',
+    date: '2023-05-10',
+    text: '通过这件文物可以了解到当时的社会生活和审美取向,非常有研究价值。',
+    likes: 18
   },
   {
-    author: "文化爱好者",
-    date: "2023-05-03",
-    text: "纹饰图案设计精妙,体现了古人的智慧,值得细细品味。",
-    likes: 12,
-  },
+    author: '文化爱好者',
+    date: '2023-05-03',
+    text: '纹饰图案设计精妙,体现了古人的智慧,值得细细品味。',
+    likes: 12
+  }
 ]);
 
 // 随机生成的辅助数据
 const randomViews = computed(() => Math.floor(Math.random() * 10000) + 2000);
 const randomLocation = computed(() => {
-  const locations = [
-    "河南安阳",
-    "陕西西安",
-    "湖北荆州",
-    "四川成都",
-    "山西太原",
-  ];
+  const locations = ['河南安阳', '陕西西安', '湖北荆州', '四川成都', '山西太原'];
   return locations[Math.floor(Math.random() * locations.length)];
 });
 const randomDimensions = computed(() => {
@@ -284,22 +244,20 @@ const randomDimensions = computed(() => {
   }cm,重 ${Math.floor(Math.random() * 5) + 1}kg`;
 });
 const randomMaterial = computed(() => {
-  const materials = ["青铜", "陶土", "瓷器", "玉石", "漆木"];
+  const materials = ['青铜', '陶土', '瓷器', '玉石', '漆木'];
   return materials[Math.floor(Math.random() * materials.length)];
 });
 const randomCondition = computed(() => {
-  const conditions = ["完好", "轻微损伤", "局部修复", "保存完整", "基本完好"];
+  const conditions = ['完好', '轻微损伤', '局部修复', '保存完整', '基本完好'];
   return conditions[Math.floor(Math.random() * conditions.length)];
 });
 
 // 扩展描述信息
 const extendedDescription = computed(() => {
-  return `这件${artifact.value?.name}是${
-    artifact.value?.era
-  }的典型代表作品,采用${
+  return `这件${artifact.value?.name}是${artifact.value?.era}的典型代表作品,采用${
     randomMaterial.value
   }制作而成。其制作工艺精湛,纹饰精美,具有很高的艺术价值和历史研究价值。从出土情况看,该器物可能用于${
-    Math.random() > 0.5 ? "祭祀活动" : "日常生活"
+    Math.random() > 0.5 ? '祭祀活动' : '日常生活'
   },是研究${artifact.value?.era}社会生活和文化艺术的重要实物资料。`;
 });
 
@@ -320,12 +278,12 @@ const toggleFavorite = () => {
 const submitComment = () => {
   if (commentText.value.trim()) {
     comments.value.unshift({
-      author: "游客" + Math.floor(Math.random() * 1000),
-      date: new Date().toISOString().split("T")[0],
+      author: '游客' + Math.floor(Math.random() * 1000),
+      date: new Date().toISOString().split('T')[0],
       text: commentText.value,
-      likes: 0,
+      likes: 0
     });
-    commentText.value = "";
+    commentText.value = '';
   }
 };
 
@@ -333,7 +291,7 @@ const submitComment = () => {
 const formatDate = () => {
   const date = new Date();
   date.setFullYear(date.getFullYear() - Math.floor(Math.random() * 5) - 1);
-  return date.toISOString().split("T")[0];
+  return date.toISOString().split('T')[0];
 };
 
 onMounted(() => {
@@ -344,13 +302,13 @@ onMounted(() => {
       artifact.value = JSON.parse(itemStr) as ArtifactItem;
       isFavorite.value = artifact.value.favorite || false;
     } catch (e) {
-      console.error("解析藏品数据失败", e);
+      console.error('解析藏品数据失败', e);
     }
   }
 
   // 如果没有获取到数据,重定向回列表页
   if (!artifact.value) {
-    console.error("未能获取到藏品数据");
+    console.error('未能获取到藏品数据');
     // 实际开发中,这里可以根据id从API获取数据
     // const id = route.params.id;
     // fetchArtifactDetail(id);
