@@ -1,5 +1,5 @@
 export type Artifact = {
-  id?: string;
+  id: string;
   name: string;
   era: string;
   image: string;

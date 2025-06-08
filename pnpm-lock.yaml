@@ -23,9 +23,6 @@ importers:
       pinia:
         specifier: ^3.0.2
         version: 3.0.2(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
-      pocketbase:
-        specifier: ^0.25.2
-        version: 0.25.2
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.3)
@@ -772,9 +769,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  pocketbase@0.25.2:
-    resolution: {integrity: sha512-ONZl1+qHJMnhR2uacBlBJ90lm7njtL/zy0606+1ROfK9hSL4LRBRc8r89rMcNRzPzRqCNyoFTh2Qg/lYXdEC1w==}
 
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
@@ -1585,8 +1579,6 @@ snapshots:
       vue: 3.5.13(typescript@5.7.3)
     optionalDependencies:
       typescript: 5.7.3
-
-  pocketbase@0.25.2: {}
 
   postcss@8.5.3:
     dependencies:
