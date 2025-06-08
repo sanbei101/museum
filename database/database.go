@@ -72,6 +72,7 @@ func ConnectDB() {
 	}
 
 	// 插入100条初始数据
+	artifacts := make([]models.Artifact, 0, 100)
 	for i := 0; i < 100; i++ {
 		artifact := models.Artifact{
 			Name:        "文物" + fmt.Sprint(i+1),
@@ -81,10 +82,11 @@ func ConnectDB() {
 			Era:         eraList[i%len(eraList)],
 			Likes:       rand.Intn(100), // 随机生成0-99之间的点赞数
 		}
-		if err := DB.Create(&artifact).Error; err != nil {
-			log.Fatalf("Failed to insert initial data: %v\n", err)
-			os.Exit(1)
-		}
+		artifacts = append(artifacts, artifact)
+	}
+	if err := DB.Create(&artifacts).Error; err != nil {
+		log.Fatalf("Failed to insert initial data: %v\n", err)
+		os.Exit(1)
 	}
 	log.Println("Database Migrated")
 }

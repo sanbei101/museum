@@ -29,7 +29,7 @@ func main() {
 
 	artifactController.RegisterArtifactRoutes(router)
 
-	port := "8080"
+	port := "7001"
 	log.Printf("Server starting on port %s\n", port)
 	if err := router.Run(":" + port); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
