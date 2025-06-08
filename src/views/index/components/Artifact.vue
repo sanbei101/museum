@@ -33,11 +33,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { NCard, NGrid, NGridItem, NButton, NTag } from 'naive-ui';
 import { Heart, ChevronRight } from 'lucide-vue-next';
 import type { Artifact } from '@/api/type';
-import { FetchArtifact } from '@/api/artifact';
 import { useRouter } from 'vue-router';
 import { RouteName } from '@/router';
 const router = useRouter();

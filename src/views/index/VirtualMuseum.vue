@@ -66,7 +66,6 @@
 import Header from '@/views/index/components/Header.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import {
-  Aperture as LucideAperture,
   ArrowRight as LucideArrowRight,
   ChevronLeft as LucideChevronLeft,
   ChevronRight as LucideChevronRight
