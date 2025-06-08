@@ -1,4 +1,5 @@
 <template>
+  <Header></Header>
   <div class="container">
     <n-space vertical size="large" :style="{ padding: '20px' }">
       <n-card title="博物馆参观指南" hoverable>
@@ -183,6 +184,7 @@ import {
   TicketCheck,
   Building
 } from 'lucide-vue-next';
+import Header from '@/views/index/components/Header.vue';
 </script>
 
 <style scoped>

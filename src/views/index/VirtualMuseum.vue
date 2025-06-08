@@ -1,12 +1,6 @@
 <template>
   <div class="apple-museum">
-    <!-- 顶部导航 -->
-    <header class="museum-nav">
-      <div class="logo">
-        <LucideAperture class="icon" />
-        <span>典藏展览</span>
-      </div>
-    </header>
+    <Header></Header>
 
     <!-- 主展示区域 -->
     <main>
@@ -69,6 +63,7 @@
 </template>
 
 <script setup lang="ts">
+import Header from '@/views/index/components/Header.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import {
   Aperture as LucideAperture,

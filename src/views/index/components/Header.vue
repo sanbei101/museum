@@ -1,7 +1,7 @@
 <template>
   <n-layout-header bordered class="header">
     <div class="header-content">
-      <div class="logo">
+      <div class="logo" @click="router.push({ name: RouteName.Home })">
         <h1>博物馆藏品管理</h1>
       </div>
       <div class="nav-links">
@@ -18,21 +18,34 @@
             <Bell />
           </template>
         </n-button>
-        <n-avatar
-          round
-          size="medium"
-          src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
+        <n-dropdown :options="userMenuOptions" @select="handleUserMenuSelect" trigger="click">
+          <n-avatar
+            round
+            size="medium"
+            src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+            style="cursor: pointer" />
+        </n-dropdown>
       </div>
     </div>
   </n-layout-header>
 </template>
 
 <script setup lang="ts">
-import { NLayoutHeader, NMenu, NButton, NAvatar, type MenuOption } from 'naive-ui';
+import {
+  NLayoutHeader,
+  NMenu,
+  NButton,
+  NAvatar,
+  NDropdown,
+  type MenuOption,
+  type DropdownOption
+} from 'naive-ui';
 import { Search, Bell } from 'lucide-vue-next';
 import { h } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import { RouteName } from '@/router';
+
+const router = useRouter();
 
 const menuOptions: MenuOption[] = [
   {
@@ -54,6 +67,24 @@ const menuOptions: MenuOption[] = [
     key: 'guide'
   }
 ];
+
+const userMenuOptions: DropdownOption[] = [
+  {
+    label: '登入管理页面',
+    key: 'admin',
+    props: {
+      onClick: () => {
+        router.push({ name: RouteName.AdminLogin });
+      }
+    }
+  }
+];
+
+const handleUserMenuSelect = (key: string) => {
+  if (key === 'admin') {
+    router.push({ name: RouteName.AdminDashboard });
+  }
+};
 </script>
 
 <style scoped>
@@ -82,6 +113,7 @@ const menuOptions: MenuOption[] = [
 }
 
 .logo h1 {
+  cursor: pointer;
   font-size: 18px;
   margin: 0;
   color: #18a058;

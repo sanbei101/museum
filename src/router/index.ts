@@ -4,12 +4,16 @@ const ArtifactDisplay = () => import('@/views/index/ArtifactDisplay.vue');
 const VisitGuide = () => import('@/views/index/VisitGuide.vue');
 const ArtifactDetail = () => import('@/views/index/ArtifactDetail.vue');
 const VirtualMuseum = () => import('@/views/index/VirtualMuseum.vue');
+const AdminDashboard = () => import('@/views/admin/Dashboard.vue');
+
 export const RouteName = {
   Home: 'home',
   ArtifactDisplay: 'artifactDisplay',
   ArtifactDetail: 'artifactDetail',
   VisitGuide: 'visitGuide',
-  VirtualMuseum: 'virtualMuseum'
+  VirtualMuseum: 'virtualMuseum',
+  AdminDashboard: 'adminDashboard',
+  AdminLogin: 'adminLogin'
 };
 
 const routes = [
@@ -37,6 +41,16 @@ const routes = [
     name: RouteName.VirtualMuseum,
     path: '/virtual-museum',
     component: VirtualMuseum
+  },
+  {
+    name: RouteName.AdminDashboard,
+    path: '/admin',
+    component: AdminDashboard
+  },
+  {
+    name: RouteName.AdminLogin,
+    path: '/admin/login',
+    component: () => import('@/views/admin/Login.vue')
   }
 ];
 

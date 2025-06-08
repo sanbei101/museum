@@ -1,4 +1,5 @@
 <template>
+  <Header></Header>
   <div class="artifact-display-container">
     <!-- 页面标题 -->
     <div class="page-header">
@@ -89,6 +90,7 @@
 </template>
 
 <script setup lang="ts">
+import Header from '@/views/index/components/Header.vue';
 import { ref, computed, onMounted, watch } from 'vue';
 import {
   NCard,
