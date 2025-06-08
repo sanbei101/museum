@@ -6,6 +6,7 @@ import (
 	"museum-api/database"
 	"museum-api/services"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,6 +21,9 @@ func main() {
 	artifactController := controllers.NewArtifactController(artifactService)
 
 	router := gin.Default()
+
+	// 允许所有跨域请求
+	router.Use(cors.Default())
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
