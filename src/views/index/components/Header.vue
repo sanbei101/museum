@@ -48,10 +48,6 @@ const menuOptions: MenuOption[] = [
     key: 'virtual-tour'
   },
   {
-    label: '活动预约',
-    key: 'events'
-  },
-  {
     label: () => {
       return h(RouterLink, { to: { name: RouteName.VisitGuide } }, () => '导览服务');
     },

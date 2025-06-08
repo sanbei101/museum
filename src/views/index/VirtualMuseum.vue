@@ -437,9 +437,7 @@ main {
 /* 动画 */
 .fade-enter-active,
 .fade-leave-active {
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-enter-from,

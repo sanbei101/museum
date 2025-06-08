@@ -79,7 +79,7 @@ const featuredItems = ref<FeaturedItem[]>([
     category: '青铜器',
     description: '四羊方尊是中国出土的商代青铜礼器，器身四角有羊首装饰',
     image:
-      'https://images.unsplash.com/photo-1609607847926-da4702f01fef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80',
+      'https://images.unsplash.com/photo-1660412096990-91798fa8b121?q=80&w=2419&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     likes: 256,
     favorite: false
   },
