@@ -22,7 +22,12 @@
     "@vue/tsconfig": "^0.7.0",
     "less": "^4.3.0",
     "typescript": "~5.7.2",
-    "vite": "^6.2.6",
+    "vite": "npm:rolldown-vite@latest",
     "vue-tsc": "^2.2.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@latest"
+    }
   }
 }
