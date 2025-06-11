@@ -256,18 +256,15 @@ const handlePageChange = (page: number) => {
   currentPage.value = page;
 };
 
-// 处理每页数量改变
 const handlePageSizeChange = (pageSize: number) => {
   currentPage.value = 1;
-  pageSize = pageSize;
+  pageSize;
 };
 
-// 监听页码和分页大小变化，重新获取数据
 watch([currentPage, pageSize], () => {
   fetchArtifacts();
 });
 
-// 组件挂载时获取数据
 onMounted(() => {
   fetchArtifacts();
 });

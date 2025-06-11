@@ -40,26 +40,6 @@ import type { Artifact } from '@/api/type';
 import { useRouter } from 'vue-router';
 import { RouteName } from '@/router';
 const router = useRouter();
-// onMounted(async () => {
-//   try {
-//     const res = await FetchArtifact(1, 5);
-//     res.items.forEach((item) => {
-//       const artifact = {
-//         id: item.id,
-//         name: item.name,
-//         era: item.era,
-//         category: item.category,
-//         description: item.description,
-//         image: item.image,
-//         likes: item.likes,
-//         favorite: false
-//       };
-//       featuredItems.value.push(artifact);
-//     });
-//   } catch (error) {
-//     console.error('Error fetching artifacts:', error);
-//   }
-// });
 const handleClick = () => {
   console.log(RouteName.ArtifactDisplay);
   router.push({

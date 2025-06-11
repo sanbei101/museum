@@ -8,6 +8,19 @@ export type Artifact = {
   likes: number;
 };
 
+export type Exhibition = {
+  id: string;
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  image: string;
+  artifactIds: string[];
+  status: 'upcoming' | 'ongoing' | 'ended';
+  location: string;
+  likes: number;
+};
+
 export type Page<T> = {
   items: T[];
   page: number;

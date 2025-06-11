@@ -1,27 +1,19 @@
 import { type Artifact, type Page } from './type';
-import axiosInstance from './axios';
+import { useArtifactStore } from '@/store';
+const artifactStore = useArtifactStore();
 
 async function FetchArtifact(page: number, perPage: number): Promise<Page<Artifact>> {
-  const response = await axiosInstance.get(`/artifacts`, {
-    params: {
-      page,
-      perPage
-    }
-  });
-  return response.data as Page<Artifact>;
+  return artifactStore.fetchArtifacts(page, perPage);
 }
 
 async function UpdateArtifact(artifactId: string, data: Artifact): Promise<Artifact> {
-  const response = await axiosInstance.put(`/artifacts/${artifactId}`, data);
-  return response.data as Artifact;
+  return artifactStore.updateArtifact(artifactId, data);
 }
 
-async function CreateArtifact(data: Artifact): Promise<Artifact> {
-  const response = await axiosInstance.post(`/artifacts`, data);
-  return response.data as Artifact;
+async function CreateArtifact(data: Omit<Artifact, 'id'>): Promise<Artifact> {
+  return artifactStore.createArtifact(data);
 }
 async function DeleteArtifact(artifactId: string) {
-  const response = await axiosInstance.delete(`/artifacts/${artifactId}`);
-  return response.data;
+  return artifactStore.deleteArtifact(artifactId);
 }
 export { FetchArtifact, CreateArtifact, UpdateArtifact, DeleteArtifact };

@@ -147,17 +147,7 @@ import {
   useDialog,
   type PaginationProps
 } from 'naive-ui';
-import {
-  Plus,
-  Search,
-  Edit,
-  Trash2,
-  Eye,
-  Archive,
-  BarChart3,
-  Settings,
-  Home
-} from 'lucide-vue-next';
+import { Plus, Search, Edit, Trash2, Eye, Archive, Home } from 'lucide-vue-next';
 import { FetchArtifact, CreateArtifact, UpdateArtifact, DeleteArtifact } from '@/api/artifact';
 import type { Artifact } from '@/api/type';
 
@@ -179,14 +169,8 @@ const menuOptions = [
     icon: () => h(NIcon, null, { default: () => h(Archive) })
   },
   {
-    label: '统计分析',
-    key: 'statistics',
-    icon: () => h(NIcon, null, { default: () => h(BarChart3) })
-  },
-  {
-    label: '系统设置',
-    key: 'settings',
-    icon: () => h(NIcon, null, { default: () => h(Settings) })
+    key: 'exhibitions',
+    label: '展览管理'
   }
 ];
 

@@ -62,6 +62,12 @@ const menuOptions: MenuOption[] = [
   },
   {
     label: () => {
+      return h(RouterLink, { to: { name: RouteName.Exhibition } }, () => '展览信息');
+    },
+    key: 'exhibition'
+  },
+  {
+    label: () => {
       return h(RouterLink, { to: { name: RouteName.VisitGuide } }, () => '导览服务');
     },
     key: 'guide'
