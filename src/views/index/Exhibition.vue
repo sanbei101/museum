@@ -14,8 +14,7 @@
                 v-model:value="statusFilter"
                 :options="statusOptions"
                 placeholder="筛选状态"
-                style="width: 120px"
-                @update:value="handleStatusFilter" />
+                style="width: 120px" />
               <n-button @click="refreshData">
                 <RotateCcw class="icon" />
                 刷新
@@ -295,10 +294,6 @@ const getStatusText = (status: string) => {
     default:
       return '未知';
   }
-};
-
-const handleStatusFilter = () => {
-  // 筛选逻辑已在计算属性中处理
 };
 
 const viewExhibitionDetail = (exhibition: Exhibition) => {

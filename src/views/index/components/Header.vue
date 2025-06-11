@@ -18,7 +18,7 @@
             <Bell />
           </template>
         </n-button>
-        <n-dropdown :options="userMenuOptions" @select="handleUserMenuSelect" trigger="click">
+        <n-dropdown :options="userMenuOptions" trigger="click">
           <n-avatar
             round
             size="medium"
@@ -85,12 +85,6 @@ const userMenuOptions: DropdownOption[] = [
     }
   }
 ];
-
-const handleUserMenuSelect = (key: string) => {
-  if (key === 'admin') {
-    router.push({ name: RouteName.AdminDashboard });
-  }
-};
 </script>
 
 <style scoped>
